@@ -42,17 +42,17 @@ class ProductController extends Controller
         $product->slug =$request->slug;
         $product->price=$request->price;
         $product->description=$request->description;
-        // if($request->hasFile('image')){
-        //     $file= $request->file('image');
-        //     $extension=$file->getClientOriginalExtension();
-        //     $filename='pizza'.time(). '.'.$extension;
-        //     $file->move('img', $filename);
-        //     $product->image=$filename;
-        // }else{
-        //     return $request;
-        //     $blog->image='';
-        // }
-        $product->image=$request->image;
+        if($request->hasFile('image')){
+            $file= $request->file('image');
+            $extension=$file->getClientOriginalExtension();
+            $filename='pizza'.time(). '.'.$extension;
+            $file->move('img', $filename);
+            $product->image=$filename;
+        }else{
+            return $request;
+            $blog->image='';
+        }
+        // $product->image=$request->image;
         // $product->image=$request->image;
 
         $product->save();
