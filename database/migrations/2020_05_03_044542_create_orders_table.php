@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->float('delivery_cost')->default(30);
+            $table->float('delivery_cost')->default(15);
             $table->float('total')->nullable();
             $table->timestamps();
         });
