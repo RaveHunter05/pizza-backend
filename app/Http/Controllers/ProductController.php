@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -41,16 +42,17 @@ class ProductController extends Controller
         $product->slug =$request->slug;
         $product->price=$request->price;
         $product->description=$request->description;
-        if($request->hasFile('image')){
-            $file= $request->file('image');
-            $extension=$file->getClientOriginalExtension();
-            $filename='pizza'.time(). '.'.$extension;
-            $file->move('img', $filename);
-            $product->image=$filename;
-        }else{
-            return $request;
-            $blog->image='';
-        }
+        // if($request->hasFile('image')){
+        //     $file= $request->file('image');
+        //     $extension=$file->getClientOriginalExtension();
+        //     $filename='pizza'.time(). '.'.$extension;
+        //     $file->move('img', $filename);
+        //     $product->image=$filename;
+        // }else{
+        //     return $request;
+        //     $blog->image='';
+        // }
+        $product->image=$request->image;
         // $product->image=$request->image;
 
         $product->save();
@@ -66,6 +68,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        
         return $product;
     }
 
