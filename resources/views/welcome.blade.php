@@ -75,7 +75,7 @@
                 color:yellow;
             }
             .fondo{
-                background-image: url('https://img.youtube.com/vi/l-1LF8h2A44/mqdefault.jpg');
+                background-image: url('https://image.shutterstock.com/image-photo/concept-promotional-flyer-poster-restaurants-260nw-1060535249.jpg');
             }
         </style>
     </head>
