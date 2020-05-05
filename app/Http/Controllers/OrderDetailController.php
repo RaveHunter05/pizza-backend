@@ -76,6 +76,14 @@ class OrderDetailController extends Controller
         return response()->json($order_Detail, 200);
     }
 
+    public function order_details($order){
+        $orders=Order_Detail::where('order_id', $order)
+        ->leftJoin('products', 'order__details.product_id', '=', 'products.id')
+        ->get();
+
+        return response()->json([$orders, 200]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

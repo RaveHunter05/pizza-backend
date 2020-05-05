@@ -50,3 +50,4 @@ Route::get('/order_detail', 'OrderDetailController@index');
 Route::get('/order_detail/{order_Detail}', 'OrderDetailController@show');
 Route::post('/order_detail', 'OrderDetailController@store');
 Route::put('/order_detail/{order_Detail}', 'OrderDetailController@update');
+Route::get('/order_detail/lista/{order}', 'OrderDetailController@order_details');
