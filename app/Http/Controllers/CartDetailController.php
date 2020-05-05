@@ -51,6 +51,12 @@ class CartDetailController extends Controller
         return $cart_Detail;
     }
 
+    public function carts_details($cart){
+        $carts=Cart_Detail::where('cart_id', $cart)->leftJoin('products', 'cart__details.product_id', '=', 'products.id')->get();
+
+        return response()->json([$carts, 200]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

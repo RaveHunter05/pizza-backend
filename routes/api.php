@@ -43,6 +43,8 @@ Route::get('/cart_detail', 'CartDetailController@index');
 Route::get('/cart_detail/{cart_Detail}', 'CartDetailController@show');
 Route::post('/cart_detail', 'CartDetailController@store');
 Route::put('/cart_detail/{cart_Detail}', 'CartDetailController@update');
+Route::get('/cart_detail/list/{cart}', 'CartDetailController@carts_details');
+
 
 Route::get('/order_detail', 'OrderDetailController@index');
 Route::get('/order_detail/{order_Detail}', 'OrderDetailController@show');
