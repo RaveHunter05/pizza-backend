@@ -52,7 +52,9 @@ class CartDetailController extends Controller
     }
 
     public function carts_details($cart){
-        $carts=Cart_Detail::where('cart_id', $cart)->leftJoin('products', 'cart__details.product_id', '=', 'products.id')->get();
+        $carts=Cart_Detail::where('cart_id', $cart)
+        ->leftJoin('products', 'cart__details.product_id', '=', 'products.id')
+        ->get();
 
         return response()->json([$carts, 200]);
     }
